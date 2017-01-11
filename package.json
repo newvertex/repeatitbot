@@ -1,0 +1,15 @@
+{
+  "name": "repeatitbot",
+  "version": "0.1.0",
+  "description": " A Telegram bot that just Repeat anything you say as many times as you want",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": "https://github.com/newvertex/repeatitbot.git",
+  "author": "Mojtaba Rabiei <mojtaba.r127@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^3.6.4"
+  }
+}
