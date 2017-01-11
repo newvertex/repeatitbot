@@ -10,8 +10,12 @@ bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT);
 
 function repeatIt(messageText = '') {
   const timesPosition = messageText.indexOf(' ');
-  const times = messageText.substring(0, timesPosition);
+  let times = messageText.substring(0, timesPosition);
   const text = messageText.substring(timesPosition + 1);
+
+  if (times > 500) {
+    times = 500;
+  }
 
   let answer = '';
   for (let i = 0; i < times; i += 1) {
