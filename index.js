@@ -1,10 +1,17 @@
 const Telegraf = require('telegraf');
-const bot = new Telegraf(process.env.BOT_TOKEN);
+
+const BOT_TOKEN = process.env.BOT_TOKEN || '';
+const PORT = process.env.PORT || 3000;
+const URL = process.env.URL || '';
+
+const bot = new Telegraf(BOT_TOKEN);
+bot.telegram.setWebhook(`${URL}/bot${BOT_TOKEN}`);
+bot.startWebhook(`/bot${BOT_TOKEN}`, null, PORT);
 
 function repeatIt(messageText = '') {
   const timesPosition = messageText.indexOf(' ');
   const times = messageText.substring(0, timesPosition);
-  const text = messageText.substring(timesPosition);
+  const text = messageText.substring(timesPosition + 1);
 
   let answer = '';
   for (let i = 0; i < times; i += 1) {
@@ -21,4 +28,4 @@ bot.on('message', (ctx) => {
   return ctx.reply(repeatIt(messageText));
 });
 
-bot.startPolling()
+// bot.startPolling()
